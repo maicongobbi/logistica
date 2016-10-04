@@ -40,9 +40,7 @@ public class EntradaMaterialMB {
 	List<String> estadoProduto = new ArrayList<String>(); //lista de estados
 	@Getter
 	@Setter
-	String quantidade;
-	
-	
+	String quantidade;	
 	@PostConstruct
 	public void init()
 	{	this.produtoDao =  new DAO<Produto>(Produto.class);
