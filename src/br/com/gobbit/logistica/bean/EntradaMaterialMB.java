@@ -41,6 +41,7 @@ public class EntradaMaterialMB {
 	@Getter
 	@Setter
 	String quantidade;	
+	
 	@PostConstruct
 	public void init()
 	{	this.produtoDao =  new DAO<Produto>(Produto.class);
