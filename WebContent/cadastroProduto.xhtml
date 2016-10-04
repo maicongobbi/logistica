@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<h1> Cadastro tipo de produto</h1>
+	<h:form>
+		<fieldset>
+			<legend>Descreva o tipo do produto</legend>
+				<h:panelGrid columns="2">
+					Descricao produto:
+					<h:inputText value="#{produtoMB.produto.descricao}" />
+					
+					Descreva como será mensurado este produto
+					<h:inputText value="#{produtoMB.produto.unidadeMedida}" />
+					
+					
+				</h:panelGrid>
+				
+				
+			<h:commandButton value="Gravar" action="#{produtoMB.gravar}"/>
+			
+		</fieldset>
+	</h:form>
+</h:body>
+</html>

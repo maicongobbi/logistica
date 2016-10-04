@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<h1> Cadastro tipo de produto</h1>
+	<h:form>
+		<fieldset>
+			<legend>Descreva o tipo do produto</legend>
+				<h:panelGrid columns="2">
+					Selecione o produto:
+					<h:selectOneMenu id="selecProduto" value="#{entradaMaterialMB.produtoSelecionado}">
+						 <f:selectItem itemLabel="Selecione um produto" itemValue="" />
+						<f:selectItems value="#{entradaMaterialMB.listaProdutos}" var="produto"
+						itemLabel="#{produto.descricao}  #{produto.unidadeMedida}" itemValue="#{produto.id}"
+						/>											
+					</h:selectOneMenu>
+				
+
+					Informe a quantidade
+					<h:inputText value="#{entradaMaterialMB.quantidade}" />
+					
+					Informe a situação
+<!-- 					<h:selectOneMenu id="selecSituacao" value="#{entradaMaterialMB.estado}">						  -->
+<!-- 						<f:selectItems value="#{entradaMaterialMB.estadoProduto}" var="estado" -->
+<!-- 						itemLabel="#{estado}" itemValue="#{estado}"	/>											 -->
+<!-- 					</h:selectOneMenu> -->
+					
+					
+					<h:commandButton value="Adicionar" action="#{entradaMaterialMB.addProduto()}"  >
+						<p:ajax update="tabela"/>
+					</h:commandButton>
+					<h:outputLabel></h:outputLabel> 
+					
+					Informe o Documento de entrada
+					<h:inputText value="#{entradaMaterialMB.estoque.documento}" />
+					Informe a data de entrada
+					<h:inputText value="#{entradaMaterialMB.estoque.data}" />
+					
+				</h:panelGrid>
+				<h:dataTable value="#{entradaMaterialMB.produtosAdicionados}" var="o">
+					<h:column>
+						#{o}
+					</h:column>
+				
+				</h:dataTable>
+								
+					
+				
+			<h:commandButton value="Gravar" action="#{produtoMB.gravar}"/>
+			
+		</fieldset>
+	</h:form>
+</h:body>
+</html>
